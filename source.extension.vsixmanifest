@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" ?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="SvelteForVS.cf753cf7-a24c-4d55-b2bd-4dab99668848" Version="1.0" Language="en-US" Publisher="Lyu, Jason" />
+        <Identity Id="SvelteVisualStudio.cf753cf7-a24c-4d55-b2bd-4dab99668848" Version="1.0" Language="en-US" Publisher="Lyu, Jason" />
         <DisplayName>Svelte For Visual Studio</DisplayName>
         <Description xml:space="preserve">Empty VSIX Project.</Description>
         <Preview>true</Preview>
@@ -18,6 +18,6 @@
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
         <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" />
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="SvelteForVS.pkgdef" />
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="SvelteVisualStudio.pkgdef" />
     </Assets>
 </PackageManifest>

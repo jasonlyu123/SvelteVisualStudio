@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SvelteForVS
+namespace SvelteVisualStudio
 {
     [ContentType(SvelteContentDefinition.Identifier)]
     [Export(typeof(ILanguageClient))]

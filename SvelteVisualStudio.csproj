@@ -13,8 +13,8 @@
     <ProjectGuid>{69626BFC-9051-4D32-A2A5-0B2E8C47D006}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SvelteForVS</RootNamespace>
-    <AssemblyName>SvelteForVS</AssemblyName>
+    <RootNamespace>SvelteVisualStudio</RootNamespace>
+    <AssemblyName>SvelteVisualStudio</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
@@ -70,7 +70,7 @@
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.9.2016" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SvelteForVS.pkgdef">
+    <Content Include="SvelteVisualStudio.pkgdef">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

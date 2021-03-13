@@ -5,7 +5,7 @@ with [language server protocol](https://microsoft.github.io/language-server-prot
 
 ### Configuration
 
-Create a `VSWorkspaceSettings.json` in the `.vs` folder in the folder you want to the config to apply to
+Create a `VSWorkspaceSettings.json` in the `.vs` folder in the folder you want the config to apply to.
 Complete list see [Svelte for VSCode](https://github.com/sveltejs/language-tools/tree/master/packages/svelte-vscode#settings)
 Note that not all feature is supported in Visual Studio.
 

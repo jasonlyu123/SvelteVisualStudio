@@ -1,0 +1,7 @@
+﻿{
+	"svelte.trace.server": "off",
+	"svelte.plugin.typescript.enable": true,
+	"svelte.plugin.css.enable": true,
+	"svelte.plugin.html.enable": true,
+	"svelte.plugin.svelte.enable": true
+}

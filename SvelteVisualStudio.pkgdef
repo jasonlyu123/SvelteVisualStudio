@@ -1,2 +1,4 @@
 ﻿[$RootKey$\TextMate\Repositories]
 "svelte"="$PackageFolder$\Grammars"
+[$RootKey$\OpenFolder\Settings\VSWorkspaceSettings\SvelteLanguageSettings]
+@="$PackageFolder$\SvelteLanguageSettings.json"

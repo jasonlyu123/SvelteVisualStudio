@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.LanguageServer.Client;
+﻿using Microsoft.VisualStudio.LanguageServer.Client;
 using Microsoft.VisualStudio.Threading;
 using Microsoft.VisualStudio.Utilities;
 using System;
@@ -17,8 +17,14 @@ namespace SvelteVisualStudio
     class SvelteLanguageClient : ILanguageClient
     {
         public string Name => "Svelte For Visual Studio";
+        private const string configScope = "svelte";
 
-        public IEnumerable<string> ConfigurationSections => null;
+        public IEnumerable<string> ConfigurationSections => new[]
+        {
+            configScope,
+            "typescript",
+            "javascript"
+        };
 
         public object InitializationOptions => null;
 

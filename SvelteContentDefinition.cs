@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 
 namespace SvelteVisualStudio
 {
-    class SvelteContentDefinition
+    static class SvelteContentDefinition
     {
         public const string Identifier = "svelte";
         private const string extension = ".svelte";

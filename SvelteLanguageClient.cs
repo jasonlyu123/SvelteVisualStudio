@@ -20,7 +20,9 @@ namespace SvelteVisualStudio
 
         public object InitializationOptions => null;
 
-        public IEnumerable<string> FilesToWatch => null;
+        public IEnumerable<string> FilesToWatch => new[] {
+            "**/*.{js,ts}"
+        };
 
         public event AsyncEventHandler<EventArgs> StartAsync;
         public event AsyncEventHandler<EventArgs> StopAsync;

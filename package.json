@@ -1,0 +1,23 @@
+{
+  "name": "svelte-visual-studio",
+  "version": "1.0.0",
+  "description": "This extension is a language server client for Visual Studio 2019. Power by [Svelte Language Server](https://github.com/sveltejs/language-tools/) \r with [language server protocol](https://microsoft.github.io/language-server-protocol/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonlyu123/SvelteForVisualStudio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonlyu123/SvelteForVisualStudio/issues"
+  },
+  "homepage": "https://github.com/jasonlyu123/SvelteForVisualStudio#readme",
+  "dependencies": {
+    "svelte-language-server": "^0.12.21"
+  }
+}

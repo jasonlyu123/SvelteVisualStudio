@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.LanguageServer.Client;
+using Microsoft.VisualStudio.LanguageServer.Client;
 using Microsoft.VisualStudio.Threading;
 using Microsoft.VisualStudio.Utilities;
 using System;
@@ -29,11 +29,15 @@ namespace SvelteVisualStudio
         {
             await Task.Yield();
 
+            var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var lsPath = Path.Combine(directory, "node_modules", "svelte-language-server", "bin", "server.js");
+            var port = 6009;
             var args = string.Join(
                 " ",
-                "",
+                $"\"{lsPath}\"",
                 "--stdio",
-                $"--clientProcessId={Process.GetCurrentProcess().Id}");
+                $"--clientProcessId={Process.GetCurrentProcess().Id}",
+                $"--inspect=${port}");
 
             var info = new ProcessStartInfo
             {

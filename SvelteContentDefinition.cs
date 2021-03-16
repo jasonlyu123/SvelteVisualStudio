@@ -7,15 +7,16 @@ namespace SvelteVisualStudio
     static class SvelteContentDefinition
     {
         public const string Identifier = "svelte";
-        private const string extension = ".svelte";
+        public const string Extension = ".svelte";
 
         [Export]
         [Name(Identifier)]
         [BaseDefinition(CodeRemoteContentDefinition.CodeRemoteContentTypeName)]
+        //[BaseDefinition("htmlx")]
         internal static ContentTypeDefinition SvelteContentTypeDefinition;
 
         [Export]
-        [FileExtension(extension)]
+        [FileExtension(Extension)]
         [ContentType(Identifier)]
         internal static FileExtensionToContentTypeDefinition SvelteFileExtensionDefinition;
     }

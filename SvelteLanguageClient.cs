@@ -51,7 +51,7 @@ namespace SvelteVisualStudio
             var workspace = workspaceService.CurrentWorkspace;
             var settingsManager = workspace.GetSettingsManager();
             var settings = settingsManager.GetAggregatedSettings(SettingsTypes.Generic);
-            string args = GetLanguageServerArguments(settings);
+            var args = GetLanguageServerArguments(settings);
 
             var info = new ProcessStartInfo
             {

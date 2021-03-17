@@ -62,7 +62,16 @@
     <Content Include="Grammars\svelte.tmLanguage.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="Grammars\css.tmLanguage.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Grammars\JavaScript.tmLanguage.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="Grammars\README.md" />
+    <Content Include="Grammars\TypeScript.tmLanguage.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="Key.snk" />
     <None Include="README.md" />
     <None Include="source.extension.vsixmanifest">

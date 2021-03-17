@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio.Editor;
+using Microsoft.VisualStudio.Shell;
 using System;
 
 namespace SvelteVisualStudio.Attributes
@@ -7,7 +8,7 @@ namespace SvelteVisualStudio.Attributes
     public sealed class ProvideTextMateGrammarAttribute : RegistrationAttribute
     {
         private const string defaultDirectory = "$PackageFolder$\\Grammars";
-        private const string keyName = "TextMate\\Repositories";
+        private const string keyName = CommonEditorConstants.TextMateRepositoryKey;
 
         public ProvideTextMateGrammarAttribute(string key, string directory = defaultDirectory)
         {

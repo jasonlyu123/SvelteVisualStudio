@@ -49,8 +49,8 @@ namespace SvelteVisualStudio
         {
             await Task.Yield();
             var workspace = workspaceService.CurrentWorkspace;
-            var settingsManager = workspace.GetSettingsManager();
-            var settings = settingsManager.GetAggregatedSettings(SettingsTypes.Generic);
+            var settingsManager = workspace?.GetSettingsManager();
+            var settings = settingsManager?.GetAggregatedSettings(SettingsTypes.Generic);
             var args = GetLanguageServerArguments(settings);
 
             var info = new ProcessStartInfo
@@ -78,8 +78,8 @@ namespace SvelteVisualStudio
 
         private static string GetLanguageServerArguments(IWorkspaceSettings settings)
         {
-            var portSettings = settings.Property<int?>("svelte.language-server.port");
-            var lsPathSettings = settings.Property<string>("svelte.language-server.ls-path");
+            var portSettings = settings?.Property<int?>("svelte.language-server.port");
+            var lsPathSettings = settings?.Property<string>("svelte.language-server.ls-path");
 
             var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var lsPath = string.IsNullOrEmpty(lsPathSettings) ?

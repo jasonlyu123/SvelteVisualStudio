@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Attributes\ProvideTextMateGrammarAttribute.cs" />
+    <Compile Include="Attributes\ProvideConfigAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SvelteContentDefinition.cs" />
     <Compile Include="SvelteEditorFactory.cs" />
@@ -65,14 +65,14 @@
     <Content Include="Grammars\css.tmLanguage.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Grammars\JavaScript.tmLanguage.json">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
     <None Include="Grammars\README.md" />
     <Content Include="Grammars\TypeScript.tmLanguage.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="Key.snk" />
+    <Content Include="language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="README.md" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>

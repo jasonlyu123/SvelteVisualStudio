@@ -2,13 +2,11 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SvelteVisualStudio.MiddleLayers
 {
-    [Export(typeof(MiddleLayerHost))]
     class MiddleLayerHost : ILanguageClientMiddleLayer
     {
         private readonly List<IMiddleLayerProvider> providers = new List<IMiddleLayerProvider>();
@@ -17,8 +15,6 @@ namespace SvelteVisualStudio.MiddleLayers
         {
             providers.Add(middleLayerProvider);
         }
-
-        public StreamJsonRpc.JsonRpc Rpc { get; set; }
 
         public bool CanHandle(string methodName)
         {

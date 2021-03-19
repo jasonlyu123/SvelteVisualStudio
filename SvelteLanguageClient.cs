@@ -24,7 +24,6 @@ namespace SvelteVisualStudio
         public string Name => "Svelte For Visual Studio";
         private const string configScope = "svelte";
         private readonly IVsFolderWorkspaceService workspaceService;
-        private readonly MiddleLayerHost middleLayer;
 
         public IEnumerable<string> ConfigurationSections => new[]
         {
@@ -39,7 +38,7 @@ namespace SvelteVisualStudio
             "**/*.{js,ts}"
         };
 
-        public object MiddleLayer => middleLayer;
+        public object MiddleLayer { get; }
 
         public object CustomMessageTarget => new { };
 
@@ -51,14 +50,13 @@ namespace SvelteVisualStudio
         }
 
         [ImportingConstructor]
-        public SvelteLanguageClient(
-            [Import] IVsFolderWorkspaceService workspaceService,
-            [Import] MiddleLayerHost middleLayer)
+        public SvelteLanguageClient([Import] IVsFolderWorkspaceService workspaceService)
         {
             this.workspaceService = workspaceService;
-            this.middleLayer = middleLayer;
-
+            var middleLayer = new MiddleLayerHost();
             middleLayer.Register(new CompletionMiddleLayer());
+
+            MiddleLayer = middleLayer;
         }
 
         public async Task<Connection> ActivateAsync(CancellationToken token)
@@ -128,7 +126,6 @@ namespace SvelteVisualStudio
 
         public Task AttachForCustomMessageAsync(JsonRpc rpc)
         {
-            middleLayer.Rpc = rpc;
             return Task.CompletedTask;
         }
     }

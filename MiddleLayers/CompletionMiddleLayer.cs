@@ -1,10 +1,9 @@
 ﻿using Microsoft.VisualStudio.LanguageServer.Protocol;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace SvelteVisualStudio.MiddleLayers
 {
@@ -22,14 +21,18 @@ namespace SvelteVisualStudio.MiddleLayers
             var res = await sendRequest(methodParam);
 
             var completion = res.ToObject<CompletionList>();
-           if (!completion.Items.Any(item => item.InsertTextFormat == InsertTextFormat.Snippet))
-            {
-                return res;
-            }
 
             var filtered = new List<CompletionItem>();
             foreach (var item in completion.Items)
             {
+                // JSDoc template only works when there's block comment auto close
+                // otherwise, the next token would be treated as a comment
+                // thus resulting a wrong result
+                if (item.Label == "/** */")
+                {
+                    continue;
+                }
+
                 if (item.InsertTextFormat != InsertTextFormat.Snippet)
                 {
                     filtered.Add(item);

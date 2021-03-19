@@ -12,12 +12,11 @@ namespace SvelteVisualStudio
         [Export]
         [Name(Identifier)]
         [BaseDefinition(CodeRemoteContentDefinition.CodeRemoteContentTypeName)]
-        //[BaseDefinition("htmlx")]
-        internal static ContentTypeDefinition SvelteContentTypeDefinition;
+        internal static ContentTypeDefinition SvelteContentTypeDefinition { get; set; }
 
         [Export]
         [FileExtension(Extension)]
         [ContentType(Identifier)]
-        internal static FileExtensionToContentTypeDefinition SvelteFileExtensionDefinition;
+        internal static FileExtensionToContentTypeDefinition SvelteFileExtensionDefinition { get; set; }
     }
 }

@@ -4,6 +4,8 @@ using Microsoft.VisualStudio.Utilities;
 using Microsoft.VisualStudio.Workspace;
 using Microsoft.VisualStudio.Workspace.Settings;
 using Microsoft.VisualStudio.Workspace.VSIntegration.Contracts;
+using StreamJsonRpc;
+using SvelteVisualStudio.MiddleLayers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -17,11 +19,12 @@ namespace SvelteVisualStudio
 {
     [ContentType(SvelteContentDefinition.Identifier)]
     [Export(typeof(ILanguageClient))]
-    class SvelteLanguageClient : ILanguageClient
+    class SvelteLanguageClient : ILanguageClient, ILanguageClientCustomMessage2
     {
         public string Name => "Svelte For Visual Studio";
         private const string configScope = "svelte";
         private readonly IVsFolderWorkspaceService workspaceService;
+        private readonly MiddleLayerHost middleLayer;
 
         public IEnumerable<string> ConfigurationSections => new[]
         {
@@ -36,13 +39,26 @@ namespace SvelteVisualStudio
             "**/*.{js,ts}"
         };
 
+        public object MiddleLayer => middleLayer;
+
+        public object CustomMessageTarget => new { };
+
         public event AsyncEventHandler<EventArgs> StartAsync;
-        public event AsyncEventHandler<EventArgs> StopAsync;
+        public event AsyncEventHandler<EventArgs> StopAsync
+        {
+            add { }
+            remove { }
+        }
 
         [ImportingConstructor]
-        public SvelteLanguageClient([Import] IVsFolderWorkspaceService workspaceService)
+        public SvelteLanguageClient(
+            [Import] IVsFolderWorkspaceService workspaceService,
+            [Import] MiddleLayerHost middleLayer)
         {
             this.workspaceService = workspaceService;
+            this.middleLayer = middleLayer;
+
+            middleLayer.Register(new CompletionMiddleLayer());
         }
 
         public async Task<Connection> ActivateAsync(CancellationToken token)
@@ -107,6 +123,12 @@ namespace SvelteVisualStudio
 
         public Task OnServerInitializedAsync()
         {
+            return Task.CompletedTask;
+        }
+
+        public Task AttachForCustomMessageAsync(JsonRpc rpc)
+        {
+            middleLayer.Rpc = rpc;
             return Task.CompletedTask;
         }
     }

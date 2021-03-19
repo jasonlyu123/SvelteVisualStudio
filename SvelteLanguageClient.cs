@@ -34,9 +34,8 @@ namespace SvelteVisualStudio
 
         public object InitializationOptions => null;
 
-        public IEnumerable<string> FilesToWatch => new[] {
-            "**/*.{js,ts}"
-        };
+        // Should use gitignore pattern here, not all glob works
+        public IEnumerable<string> FilesToWatch => new[] {"*.ts" , "*.js"};
 
         public object MiddleLayer { get; }
 

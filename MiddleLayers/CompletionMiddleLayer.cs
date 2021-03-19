@@ -76,7 +76,7 @@ namespace SvelteVisualStudio.MiddleLayers
             return null;
         }
 
-        private readonly Regex tabStop = new Regex(@"(\\\$)|([\$[0-9]+|\$[0-9]+])");
+        private readonly Regex tabStop = new Regex(@"(\\\$)|(\$[0-9]+|\${[0-9]+})");
         private readonly Regex placeHolder = new Regex(@"(\\\$)|\${[0-9]+:(.*)?}");
         private readonly Regex notEscaped = new Regex(@"\$(?<!\\\$)");
 

@@ -1,0 +1,5 @@
+﻿[$RootKey$\TextMate\LanguageConfiguration\GrammarMapping]
+"source.ts"="$PackageFolder$\LanguageConfig\ts-language-configuration.json"
+"source.css"="$PackageFolder$\LanguageConfig\css-language-configuration.json"
+"source.css.less"="$PackageFolder$\LanguageConfig\less-language-configuration.json"
+"source.css.scss"="$PackageFolder$\LanguageConfig\scss-language-configuration.json"

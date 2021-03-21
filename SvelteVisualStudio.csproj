@@ -68,14 +68,30 @@
     <Content Include="Grammars\css.tmLanguage.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="SvelteVisualStudio.Custom.pkgdef">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="Grammars\README.md" />
     <Content Include="Grammars\TypeScript.tmLanguage.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="Key.snk" />
-    <Content Include="language-configuration.json">
+    <Content Include="LanguageConfig\language-configuration.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="LanguageConfig\ts-language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="LanguageConfig\css-language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="LanguageConfig\scss-language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="LanguageConfig\less-language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="LanguageConfig\README.md" />
     <None Include="README.md" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>

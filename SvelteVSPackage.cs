@@ -45,7 +45,7 @@ namespace SvelteVisualStudio
         /// SvelteVSPackage GUID string.
         /// </summary>
         public const string PackageGuidString = "5d0112bf-dd7f-42ad-afd6-15cbd79444e9";
-        private const string languageConfigPath = "$PackageFolder$\\language-configuration.json";
+        private const string languageConfigPath = "$PackageFolder$\\LanguageConfig\\language-configuration.json";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SvelteVSPackage"/> class.

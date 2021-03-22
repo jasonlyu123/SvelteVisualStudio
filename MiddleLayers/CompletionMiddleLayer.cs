@@ -9,7 +9,7 @@ namespace SvelteVisualStudio.MiddleLayers
 {
     class CompletionMiddleLayer : IMiddleLayerProvider
     {
-        public string Method => "textDocument/completion";
+        public string Method => Methods.TextDocumentCompletionName;
 
         public Task HandleNotificationAsync(JToken methodParam, Func<JToken, Task> sendNotification)
         {

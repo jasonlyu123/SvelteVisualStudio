@@ -92,7 +92,12 @@ namespace SvelteVisualStudio
         private static string GetLanguageServerArguments(IWorkspaceSettings settings)
         {
             var portSettings = settings?.Property<int?>("svelte.language-server.port");
-            var lsPathSettings = settings?.Property<string>("svelte.language-server.ls-path");
+            string lsPathSettings =
+#if DEBUG
+                settings?.Property<string>("svelte.language-server.ls-path");
+#else
+                null;
+#endif
 
             var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var lsPath = string.IsNullOrEmpty(lsPathSettings) ?

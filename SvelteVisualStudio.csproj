@@ -71,7 +71,6 @@
     <Content Include="SvelteVisualStudio.Custom.pkgdef">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <None Include="Grammars\README.md" />
     <Content Include="Grammars\TypeScript.tmLanguage.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

@@ -436,7 +436,7 @@
           ]
       },
       {
-          "begin": "({)\\s*(#if|:elseif|#await|@html)",
+          "begin": "({)\\s*(#if|:elseif|#await|#key|@html)",
           "beginCaptures": {
               "1": {
                   "name": "punctuation.definition.tag.begin.svelte"
@@ -551,7 +551,7 @@
           ]
       },
       {
-          "match": "({)\\s*(:else|/if|/each|/await)\\s*(})",
+          "match": "({)\\s*(:else|/if|/each|/await|/key)\\s*(})",
           "captures": {
               "1": {
                   "name": "punctuation.definition.tag.begin.svelte"

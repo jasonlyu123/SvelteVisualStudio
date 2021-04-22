@@ -19,6 +19,7 @@ namespace SvelteVisualStudio
 {
     [ContentType(SvelteContentDefinition.Identifier)]
     [Export(typeof(ILanguageClient))]
+    // The ILanguageClientCustomMessage used in the official LSP docs example doesn't work anymore
     class SvelteLanguageClient : ILanguageClient, ILanguageClientCustomMessage2
     {
         public string Name => "Svelte For Visual Studio";
@@ -62,6 +63,8 @@ namespace SvelteVisualStudio
         {
             await Task.Yield();
             var workspace = workspaceService.CurrentWorkspace;
+
+            // if user open a solution or project, workspace would be null
             var settingsManager = workspace?.GetSettingsManager();
             var settings = settingsManager?.GetAggregatedSettings(SettingsTypes.Generic);
             var args = GetLanguageServerArguments(settings);
@@ -92,6 +95,8 @@ namespace SvelteVisualStudio
         private static string GetLanguageServerArguments(IWorkspaceSettings settings)
         {
             var portSettings = settings?.Property<int?>("svelte.language-server.port");
+
+            // For security reason don't allow this setting on release
             string lsPathSettings =
 #if DEBUG
                 settings?.Property<string>("svelte.language-server.ls-path");
@@ -100,9 +105,12 @@ namespace SvelteVisualStudio
 #endif
 
             var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            // npm install in build step, defined in the csproj
             var lsPath = string.IsNullOrEmpty(lsPathSettings) ?
                 Path.Combine(directory, "node_modules", "svelte-language-server", "bin", "server.js") :
                 lsPathSettings;
+
             var port = portSettings > 0 ? portSettings : 6009;
             var args = string.Join(
                 " ",

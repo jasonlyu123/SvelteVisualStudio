@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31105.61
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvelteVisualStudio", "SvelteVisualStudio.csproj", "{69626BFC-9051-4D32-A2A5-0B2E8C47D006}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvelteVisualStudio_2019", "SvelteVisualStudio_2019\SvelteVisualStudio_2019.csproj", "{69626BFC-9051-4D32-A2A5-0B2E8C47D006}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SvelteVisualStudioShared", "SvelteVisualStudioShared\SvelteVisualStudioShared.shproj", "{6EFEFA43-7931-47A4-B1A9-3D35054FA769}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SvelteVisualStudioShared\SvelteVisualStudioShared.projitems*{69626bfc-9051-4d32-a2a5-0b2e8c47d006}*SharedItemsImports = 4
+		SvelteVisualStudioShared\SvelteVisualStudioShared.projitems*{6efefa43-7931-47a4-b1a9-3d35054fa769}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

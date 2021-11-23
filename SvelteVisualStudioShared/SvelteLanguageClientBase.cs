@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.LanguageServer.Client;
 using Microsoft.VisualStudio.Threading;
-using Microsoft.VisualStudio.Utilities;
 using Microsoft.VisualStudio.Workspace;
 using Microsoft.VisualStudio.Workspace.Settings;
 using Microsoft.VisualStudio.Workspace.VSIntegration.Contracts;
@@ -17,10 +16,7 @@ using System.Threading.Tasks;
 
 namespace SvelteVisualStudio
 {
-    [ContentType(SvelteContentDefinition.Identifier)]
-    [Export(typeof(ILanguageClient))]
-    // The ILanguageClientCustomMessage used in the official LSP docs example doesn't work anymore
-    class SvelteLanguageClient : ILanguageClient, ILanguageClientCustomMessage2
+    class SvelteLanguageClientBase: ILanguageClientCustomMessage2 
     {
         public string Name => "Svelte For Visual Studio";
         private const string configScope = "svelte";
@@ -42,15 +38,12 @@ namespace SvelteVisualStudio
 
         public object CustomMessageTarget => new { };
 
-        public event AsyncEventHandler<EventArgs> StartAsync;
-        public event AsyncEventHandler<EventArgs> StopAsync
-        {
-            add { }
-            remove { }
-        }
+        public bool ShowNotificationOnInitializeFailed => throw new NotImplementedException();
 
-        [ImportingConstructor]
-        public SvelteLanguageClient([Import] IVsFolderWorkspaceService workspaceService)
+        public event AsyncEventHandler<EventArgs> StartAsync;
+        public event AsyncEventHandler<EventArgs> StopAsync;
+
+        public SvelteLanguageClientBase([Import] IVsFolderWorkspaceService workspaceService)
         {
             this.workspaceService = workspaceService;
             var middleLayer = new MiddleLayerHost();

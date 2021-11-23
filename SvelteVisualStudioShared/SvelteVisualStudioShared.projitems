@@ -15,10 +15,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)MiddleLayers\MiddleLayerHost.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SvelteContentDefinition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SvelteEditorFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SvelteLanguageClient.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SvelteVSPackage.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)SvelteLanguageClientBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SvelteVSPackage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Grammars\css.tmLanguage.json">
@@ -49,6 +47,12 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)SvelteVisualStudio.Custom.pkgdef">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)node_modules\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
   </ItemGroup>

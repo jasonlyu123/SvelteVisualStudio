@@ -4,7 +4,6 @@ using Microsoft.VisualStudio.LanguageServer.Client;
 using Microsoft.VisualStudio.Shell;
 using SvelteVisualStudio.Attributes;
 using System;
-using System.Runtime.InteropServices;
 using System.Threading;
 using Task = System.Threading.Tasks.Task;
 
@@ -31,7 +30,6 @@ namespace SvelteVisualStudio
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(PackageGuidString)]
     [ProvideEditorExtension(typeof(SvelteEditorFactory), SvelteContentDefinition.Extension, 100)]
     [ProvideWorkspaceSettings("VSWorkspaceSettings", "SvelteLanguageSettings.json")]
     [ProvideConfig(
@@ -42,12 +40,8 @@ namespace SvelteVisualStudio
     [ProvideConfig("TextMate\\LanguageConfiguration\\ContentTypeMapping",
         SvelteContentDefinition.Identifier, languageConfigPath)]
     [ProvideEditorLogicalView(typeof(SvelteEditorFactory), VSConstants.LOGVIEWID.TextView_string)]
-    public sealed class SvelteVSPackage : AsyncPackage
+    public class SvelteVSPackage : AsyncPackage
     {
-        /// <summary>
-        /// SvelteVSPackage GUID string.
-        /// </summary>
-        public const string PackageGuidString = "5d0112bf-dd7f-42ad-afd6-15cbd79444e9";
         private const string languageConfigPath = "$PackageFolder$\\LanguageConfig\\language-configuration.json";
 
         /// <summary>

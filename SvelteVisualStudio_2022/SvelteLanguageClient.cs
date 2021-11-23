@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.LanguageServer.Client;
+using Microsoft.VisualStudio.Threading;
 using Microsoft.VisualStudio.Utilities;
 using Microsoft.VisualStudio.Workspace.VSIntegration.Contracts;
 using SvelteVisualStudio;
+using System;
 using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 
@@ -16,6 +18,13 @@ namespace SvelteVisualStudio_2022
         public SvelteLanguageClient(
             [Import] IVsFolderWorkspaceService workspaceService) : base(workspaceService)
         { }
+
+        public bool ShowNotificationOnInitializeFailed => true;
+        public event AsyncEventHandler<EventArgs> StopAsync
+        {
+            add { }
+            remove { }
+        }
 
         public Task<InitializationFailureContext> OnServerInitializeFailedAsync(
             ILanguageClientInitializationInfo initializationState)

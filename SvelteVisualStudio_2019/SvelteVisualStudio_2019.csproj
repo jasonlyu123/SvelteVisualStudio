@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SvelteLanguageClient.cs" />
+    <Compile Include="SvelteVSPackage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest">
@@ -76,6 +77,9 @@
       <Version>16.3.43</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.9.2016" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VSPackage.resx" />
   </ItemGroup>
   <Import Project="..\SvelteVisualStudioShared\SvelteVisualStudioShared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -59,10 +59,4 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)LanguageConfig\README.md" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)VSPackage.resx">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.LanguageServer.Client;
+using Microsoft.VisualStudio.LanguageServer.Client;
 using Microsoft.VisualStudio.Threading;
 using Microsoft.VisualStudio.Workspace;
 using Microsoft.VisualStudio.Workspace.Settings;
@@ -38,10 +38,7 @@ namespace SvelteVisualStudio
 
         public object CustomMessageTarget => new { };
 
-        public bool ShowNotificationOnInitializeFailed => throw new NotImplementedException();
-
         public event AsyncEventHandler<EventArgs> StartAsync;
-        public event AsyncEventHandler<EventArgs> StopAsync;
 
         public SvelteLanguageClientBase([Import] IVsFolderWorkspaceService workspaceService)
         {

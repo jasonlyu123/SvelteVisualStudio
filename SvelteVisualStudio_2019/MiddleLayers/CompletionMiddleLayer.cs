@@ -1,11 +1,12 @@
 ﻿using Microsoft.VisualStudio.LanguageServer.Protocol;
 using Newtonsoft.Json.Linq;
+using SvelteVisualStudio.MiddleLayers;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SvelteVisualStudio.MiddleLayers
+namespace SvelteVisualStudio_2019.MiddleLayers
 {
     class CompletionMiddleLayer : IMiddleLayerProvider
     {

@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.Threading;
 using Microsoft.VisualStudio.Utilities;
 using Microsoft.VisualStudio.Workspace.VSIntegration.Contracts;
 using SvelteVisualStudio;
+using SvelteVisualStudio_2019.MiddleLayers;
 using System;
 using System.ComponentModel.Composition;
 
@@ -22,6 +23,8 @@ namespace SvelteVisualStudio_2019
         [ImportingConstructor]
         public SvelteLanguageClient(
             [Import] IVsFolderWorkspaceService workspaceService) : base(workspaceService)
-        { }
+        {
+            middleLayerHost.Register(new CompletionMiddleLayer(shouldFilterOutJSDocSnippet: true));
+        }
     }
 }

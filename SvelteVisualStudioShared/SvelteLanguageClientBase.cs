@@ -36,7 +36,7 @@ namespace SvelteVisualStudio
         public IEnumerable<string> FilesToWatch => new[] {"*.ts" , "*.js"};
 
         public object MiddleLayer { get; }
-        private readonly MiddleLayerHost middleLayerHost;
+        protected readonly MiddleLayerHost middleLayerHost;
 
         public object CustomMessageTarget => new { };
 

@@ -11,7 +11,6 @@ namespace SvelteVisualStudio_2022
 {
     [ContentType(SvelteContentDefinition.Identifier)]
     [Export(typeof(ILanguageClient))]
-    // The ILanguageClientCustomMessage used in the official LSP docs example doesn't work anymore
     class SvelteLanguageClient : SvelteLanguageClientBase, ILanguageClient
     {
         [ImportingConstructor]

@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.LanguageServer.Client;
+﻿using Microsoft.VisualStudio.LanguageServer.Client;
 using Microsoft.VisualStudio.Threading;
 using Microsoft.VisualStudio.Workspace;
 using Microsoft.VisualStudio.Workspace.Settings;
@@ -16,7 +16,8 @@ using System.Threading.Tasks;
 
 namespace SvelteVisualStudio
 {
-    class SvelteLanguageClientBase: ILanguageClientCustomMessage2 
+    // The ILanguageClientCustomMessage used in the official LSP docs example doesn't work anymore
+    class SvelteLanguageClientBase : ILanguageClientCustomMessage2 
     {
         public string Name => "Svelte For Visual Studio";
         private const string configScope = "svelte";
@@ -35,6 +36,7 @@ namespace SvelteVisualStudio
         public IEnumerable<string> FilesToWatch => new[] {"*.ts" , "*.js"};
 
         public object MiddleLayer { get; }
+        private readonly MiddleLayerHost middleLayerHost;
 
         public object CustomMessageTarget => new { };
 
@@ -44,9 +46,8 @@ namespace SvelteVisualStudio
         {
             this.workspaceService = workspaceService;
             var middleLayer = new MiddleLayerHost();
-            middleLayer.Register(new CompletionMiddleLayer());
 
-            MiddleLayer = middleLayer;
+            MiddleLayer = middleLayerHost = middleLayer;
         }
 
         public async Task<Connection> ActivateAsync(CancellationToken token)

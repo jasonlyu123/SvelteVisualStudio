@@ -108,7 +108,7 @@ namespace SvelteVisualStudio
                 $"\"{lsPath}\"",
                 "--stdio",
                 $"--clientProcessId={Process.GetCurrentProcess().Id}",
-                $"--inspect=${port}");
+                $"--inspect={port}");
             return args;
         }
 

@@ -1,6 +1,6 @@
 ﻿## Svelte for Visual Studio
 
-This extension is a language server client for Visual Studio 2019. Power by [Svelte Language Server](https://github.com/sveltejs/language-tools/) 
+This extension is a language server client for [Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=lyu-jason.svelte-vs) and [Visual Studio 2022](https://marketplace.visualstudio.com/items?itemName=lyu-jason.svelte-vs-2022). Power by [Svelte Language Server](https://github.com/sveltejs/language-tools/) 
 with [language server protocol](https://microsoft.github.io/language-server-protocol/)
 
 ### Configuration

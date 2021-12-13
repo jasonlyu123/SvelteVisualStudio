@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.Threading;
 using Microsoft.VisualStudio.Utilities;
 using Microsoft.VisualStudio.Workspace.VSIntegration.Contracts;
 using SvelteVisualStudio;
-using SvelteVisualStudio_2019.MiddleLayers;
+using SvelteVisualStudio.MiddleLayers;
 using System;
 using System.ComponentModel.Composition;
 

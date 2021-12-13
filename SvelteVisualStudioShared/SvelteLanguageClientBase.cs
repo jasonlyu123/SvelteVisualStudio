@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.LanguageServer.Client;
 using Microsoft.VisualStudio.Threading;
-using Microsoft.VisualStudio.Utilities;
 using Microsoft.VisualStudio.Workspace;
 using Microsoft.VisualStudio.Workspace.Settings;
 using Microsoft.VisualStudio.Workspace.VSIntegration.Contracts;
@@ -17,10 +16,8 @@ using System.Threading.Tasks;
 
 namespace SvelteVisualStudio
 {
-    [ContentType(SvelteContentDefinition.Identifier)]
-    [Export(typeof(ILanguageClient))]
     // The ILanguageClientCustomMessage used in the official LSP docs example doesn't work anymore
-    class SvelteLanguageClient : ILanguageClient, ILanguageClientCustomMessage2
+    class SvelteLanguageClientBase : ILanguageClientCustomMessage2 
     {
         public string Name => "Svelte For Visual Studio";
         private const string configScope = "svelte";
@@ -39,24 +36,18 @@ namespace SvelteVisualStudio
         public IEnumerable<string> FilesToWatch => new[] {"*.ts" , "*.js"};
 
         public object MiddleLayer { get; }
+        protected readonly MiddleLayerHost middleLayerHost;
 
         public object CustomMessageTarget => new { };
 
         public event AsyncEventHandler<EventArgs> StartAsync;
-        public event AsyncEventHandler<EventArgs> StopAsync
-        {
-            add { }
-            remove { }
-        }
 
-        [ImportingConstructor]
-        public SvelteLanguageClient([Import] IVsFolderWorkspaceService workspaceService)
+        public SvelteLanguageClientBase([Import] IVsFolderWorkspaceService workspaceService)
         {
             this.workspaceService = workspaceService;
             var middleLayer = new MiddleLayerHost();
-            middleLayer.Register(new CompletionMiddleLayer());
 
-            MiddleLayer = middleLayer;
+            MiddleLayer = middleLayerHost = middleLayer;
         }
 
         public async Task<Connection> ActivateAsync(CancellationToken token)
@@ -117,7 +108,7 @@ namespace SvelteVisualStudio
                 $"\"{lsPath}\"",
                 "--stdio",
                 $"--clientProcessId={Process.GetCurrentProcess().Id}",
-                $"--inspect=${port}");
+                $"--inspect={port}");
             return args;
         }
 

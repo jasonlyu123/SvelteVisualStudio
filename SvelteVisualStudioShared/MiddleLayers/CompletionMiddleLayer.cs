@@ -9,6 +9,11 @@ namespace SvelteVisualStudio.MiddleLayers
 {
     class CompletionMiddleLayer : IMiddleLayerProvider
     {
+        public CompletionMiddleLayer(bool shouldFilterOutJSDocSnippet) 
+        {
+            this.shouldFilterOutJSDocSnippet = shouldFilterOutJSDocSnippet;
+        }
+
         public string Method => Methods.TextDocumentCompletionName;
 
         public Task HandleNotificationAsync(JToken methodParam, Func<JToken, Task> sendNotification)
@@ -28,7 +33,7 @@ namespace SvelteVisualStudio.MiddleLayers
                 // JSDoc template only works when there's block comment auto close
                 // otherwise, the next token would be treated as a comment
                 // thus resulting a wrong result
-                if (item.Label == "/** */")
+                if (!shouldFilterOutJSDocSnippet && item.Label == "/** */")
                 {
                     continue;
                 }
@@ -82,6 +87,7 @@ namespace SvelteVisualStudio.MiddleLayers
         private readonly Regex tabStop = new Regex(@"(\\\$)|(\$[0-9]+|\${[0-9]+})");
         private readonly Regex placeHolder = new Regex(@"(\\\$)|\${[0-9]+:(.*)?}");
         private readonly Regex notEscaped = new Regex(@"\$(?<!\\\$)");
+        private readonly bool shouldFilterOutJSDocSnippet;
 
         /// <summary>
         /// remove simple snippet, if it's too complicated filter it out.

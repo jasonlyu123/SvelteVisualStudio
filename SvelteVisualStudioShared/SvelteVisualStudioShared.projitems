@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6efefa43-7931-47a4-b1a9-3d35054fa769</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SvelteVisualStudioShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\ProvideConfigAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MiddleLayers\CompletionMiddleLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MiddleLayers\IMiddleLayerProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MiddleLayers\MiddleLayerHost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SvelteContentDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SvelteEditorFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SvelteLanguageClientBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SvelteVSPackage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Grammars\css.tmLanguage.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Grammars\svelte.tmLanguage.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Grammars\TypeScript.tmLanguage.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)LanguageConfig\css-language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)LanguageConfig\language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)LanguageConfig\less-language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)LanguageConfig\scss-language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)LanguageConfig\ts-language-configuration.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)SvelteLanguageSettings.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)SvelteVisualStudio.Custom.pkgdef">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)node_modules\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)LanguageConfig\README.md" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2 @@
+cd ..\SvelteVisualStudioShared
+npm i

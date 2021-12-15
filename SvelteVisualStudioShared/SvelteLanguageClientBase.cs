@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.LanguageServer.Client;
+using Microsoft.VisualStudio.LanguageServer.Client;
 using Microsoft.VisualStudio.Threading;
 using Microsoft.VisualStudio.Workspace;
 using Microsoft.VisualStudio.Workspace.Settings;
@@ -105,10 +105,10 @@ namespace SvelteVisualStudio
             var port = portSettings > 0 ? portSettings : 6009;
             var args = string.Join(
                 " ",
+                $"--inspect={port}",
                 $"\"{lsPath}\"",
                 "--stdio",
-                $"--clientProcessId={Process.GetCurrentProcess().Id}",
-                $"--inspect={port}");
+                $"--clientProcessId={Process.GetCurrentProcess().Id}");
             return args;
         }
 

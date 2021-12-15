@@ -16,7 +16,9 @@ namespace SvelteVisualStudio_2022
     {
         [ImportingConstructor]
         public SvelteLanguageClient(
-            [Import] IVsFolderWorkspaceService workspaceService) : base(workspaceService)
+            [Import] IVsFolderWorkspaceService workspaceService,
+            [Import] TsJsTextBufferManager tsJsTextBufferManager)
+                : base(workspaceService, tsJsTextBufferManager)
         {
             middleLayerHost.Register(new CompletionMiddleLayer(shouldFilterOutJSDocSnippet: true));
         }
@@ -31,7 +33,7 @@ namespace SvelteVisualStudio_2022
         public Task<InitializationFailureContext> OnServerInitializeFailedAsync(
             ILanguageClientInitializationInfo initializationState)
         {
-            return Task.FromResult(new InitializationFailureContext() 
+            return Task.FromResult(new InitializationFailureContext()
             {
                 FailureMessage = $"Language server failed to initialize during the {initializationState.Status} Stage"
             });

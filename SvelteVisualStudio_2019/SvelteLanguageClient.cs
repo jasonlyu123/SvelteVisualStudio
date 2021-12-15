@@ -22,7 +22,9 @@ namespace SvelteVisualStudio_2019
 
         [ImportingConstructor]
         public SvelteLanguageClient(
-            [Import] IVsFolderWorkspaceService workspaceService) : base(workspaceService)
+            [Import] IVsFolderWorkspaceService workspaceService,
+            [Import] TsJsTextBufferManager tsJsTextBufferManager) 
+                : base(workspaceService, tsJsTextBufferManager)
         {
             middleLayerHost.Register(new CompletionMiddleLayer(shouldFilterOutJSDocSnippet: true));
         }

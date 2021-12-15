@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SvelteEditorFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SvelteLanguageClientBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SvelteVSPackage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TsJsTextBufferManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Grammars\css.tmLanguage.json">

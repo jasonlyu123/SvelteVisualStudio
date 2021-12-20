@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="SvelteVisualStudio.cf753cf7-a24c-4d55-b2bd-4dab99668848" Version="1.5.4" Language="en-US" Publisher="Jason Lyu" />
+        <Identity Id="SvelteVisualStudio.cf753cf7-a24c-4d55-b2bd-4dab99668848" Version="1.6.0" Language="en-US" Publisher="Jason Lyu" />
         <DisplayName>Svelte For Visual Studio</DisplayName>
         <Description xml:space="preserve">A language server client for Visual Studio 2019. Power by Svelte Language Server with language server protocol</Description>
         <MoreInfo>https://github.com/jasonlyu123/SvelteVisualStudio</MoreInfo>

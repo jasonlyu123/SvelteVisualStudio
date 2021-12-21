@@ -3,7 +3,7 @@
 This extension is a language server client for [Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=lyu-jason.svelte-vs) and [Visual Studio 2022](https://marketplace.visualstudio.com/items?itemName=lyu-jason.svelte-vs-2022). Power by [Svelte Language Server](https://github.com/sveltejs/language-tools/)
 with [language server protocol](https://microsoft.github.io/language-server-protocol/). 
 
-Viusal Studio 2022 fixes a lot of bug related to LSP. Thus it's recommanded to use the VS2022 version.  
+Visual Studio 2022 fixes a lot of bugs related to LSP. Thus it's recommended to use the VS2022 version. 
 
 ### Configuration
 

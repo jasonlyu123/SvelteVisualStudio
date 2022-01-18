@@ -436,7 +436,7 @@
           ]
       },
       {
-          "begin": "({)\\s*(#if|:elseif|#await|#key|@html)",
+          "begin": "({)\\s*(#if|:elseif|#await|#key|@html|@debug|@const)",
           "beginCaptures": {
               "1": {
                   "name": "punctuation.definition.tag.begin.svelte"

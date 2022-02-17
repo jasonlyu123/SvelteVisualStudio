@@ -72,10 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Client">
-      <Version>17.0.5158</Version>
+      <Version>17.0.5165</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol">
-      <Version>17.0.5133</Version>
+      <Version>17.1.8</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.31902.203" ExcludeAssets="runtime">
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

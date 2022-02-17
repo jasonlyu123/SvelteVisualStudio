@@ -33,7 +33,7 @@ namespace SvelteVisualStudio.MiddleLayers
                 // JSDoc template only works when there's block comment auto close
                 // otherwise, the next token would be treated as a comment
                 // thus resulting a wrong result
-                if (!shouldFilterOutJSDocSnippet && item.Label == "/** */")
+                if (shouldFilterOutJSDocSnippet && item.Label == "/** */")
                 {
                     continue;
                 }

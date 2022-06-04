@@ -20,6 +20,6 @@
   "dependencies": {
     "svelte-language-server": "0.14.25",
     "svelte2tsx": "^0.5.9",
-    "typescript": "~4.6.4"
+    "typescript": "~4.7.3"
   }
 }

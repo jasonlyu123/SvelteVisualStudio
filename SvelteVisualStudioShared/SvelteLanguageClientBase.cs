@@ -33,7 +33,10 @@ namespace SvelteVisualStudio
             "javascript"
         };
 
-        public object InitializationOptions => null;
+        public object InitializationOptions => new 
+        {
+            shouldFilterCodeActionKind = true,
+        };
 
         // Should use gitignore pattern here, not all glob works
         public IEnumerable<string> FilesToWatch => new[] { "*.ts", "*.js" };

@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jasonlyu123/SvelteForVisualStudio#readme",
   "dependencies": {
     "svelte-language-server": "0.15.5",
-    "svelte2tsx": "^0.6.2",
+    "svelte2tsx": "^0.6.14",
     "typescript": "~4.9.3"
   }
 }

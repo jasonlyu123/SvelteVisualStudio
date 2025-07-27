@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SvelteVisualStudio.MiddleLayers
 {
-    class MiddleLayerHost : ILanguageClientMiddleLayer
+    class MiddleLayerHost : ILanguageClientMiddleLayer2<JToken>
     {
         private readonly List<IMiddleLayerProvider> providers = new List<IMiddleLayerProvider>();
 

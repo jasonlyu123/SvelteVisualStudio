@@ -20,7 +20,7 @@ namespace SvelteVisualStudio_2022
             [Import] TsJsTextBufferManager tsJsTextBufferManager)
                 : base(workspaceService, tsJsTextBufferManager)
         {
-            middleLayerHost.Register(new CompletionMiddleLayer(shouldFilterOutJSDocSnippet: false));
+            middleLayerHost.Register(new CompletionMiddleLayer());
         }
 
         public bool ShowNotificationOnInitializeFailed => true;

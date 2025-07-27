@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -9,10 +10,8 @@ namespace SvelteVisualStudio.MiddleLayers
 {
     class CompletionMiddleLayer : IMiddleLayerProvider
     {
-        public CompletionMiddleLayer(bool shouldFilterOutJSDocSnippet) 
-        {
-            this.shouldFilterOutJSDocSnippet = shouldFilterOutJSDocSnippet;
-        }
+        public CompletionMiddleLayer() 
+        { }
 
         public string Method => Methods.TextDocumentCompletionName;
 
@@ -30,14 +29,6 @@ namespace SvelteVisualStudio.MiddleLayers
             var filtered = new List<CompletionItem>();
             foreach (var item in completion.Items)
             {
-                // JSDoc template only works when there's block comment auto close
-                // otherwise, the next token would be treated as a comment
-                // thus resulting a wrong result
-                if (shouldFilterOutJSDocSnippet && item.Label == "/** */")
-                {
-                    continue;
-                }
-
                 if (item.InsertTextFormat != InsertTextFormat.Snippet)
                 {
                     filtered.Add(item);
@@ -48,6 +39,16 @@ namespace SvelteVisualStudio.MiddleLayers
                 if (processed != null)
                 {
                     processed.InsertTextFormat = InsertTextFormat.Plaintext;
+
+                    // VS doesn't like the import statement completion being split into additionalTextEdit
+                    if (processed.AdditionalTextEdits?.Length == 1)
+                    {
+                        var additionalTextEdit = processed.AdditionalTextEdits.First();
+                        if (additionalTextEdit.NewText == "import ")
+                        {
+                            processed.AdditionalTextEdits = null;
+                        }
+                    }
                     filtered.Add(processed);
                 }
             }
@@ -87,7 +88,6 @@ namespace SvelteVisualStudio.MiddleLayers
         private readonly Regex tabStop = new Regex(@"(\\\$)|(\$[0-9]+|\${[0-9]+})");
         private readonly Regex placeHolder = new Regex(@"(\\\$)|\${[0-9]+:(.*)?}");
         private readonly Regex notEscaped = new Regex(@"\$(?<!\\\$)");
-        private readonly bool shouldFilterOutJSDocSnippet;
 
         /// <summary>
         /// remove simple snippet, if it's too complicated filter it out.

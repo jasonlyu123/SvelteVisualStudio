@@ -436,7 +436,7 @@
           ]
       },
       {
-          "begin": "({)\\s*(#if|:elseif|#await|#key|@html|@debug|@const)",
+          "begin": "({)\\s*(#if|:elseif|#await|#key|@html|@debug|@const|@render)",
           "beginCaptures": {
               "1": {
                   "name": "punctuation.definition.tag.begin.svelte"
@@ -456,6 +456,58 @@
                   "include": "source.ts"
               }
           ]
+      },
+      {
+          "begin": "({)(#snippet)",
+          "end": "(?=})",
+          "beginCaptures": {
+              "1": {
+                  "name": "punctuation.definition.tag.begin.svelte"
+              },
+              "2": {
+                  "name": "keyword.control.conditional"
+              }
+          },
+          "patterns": [
+            {
+              "match": "\\G\\s*([_$[:alpha:]][_$[:alnum:]]*)\\s*(?=<)",
+              "captures": {
+                "1": {
+                  "name": "entity.name.function.ts"
+                }
+              }
+            },
+            {
+              "begin": "(?<=<)",
+              "end": "(?=>)",
+              "contentName": "meta.type.parameters.ts",
+              "patterns": [
+                {
+                  "include": "source.ts"
+                }
+              ]
+            },
+            {
+              "begin": "(?<=>\\s*\\()",
+              "end": "(?=})",
+              "name": "meta.embedded.expression.svelte source.ts",
+              "patterns": [
+                {
+                  "include": "source.ts"
+                }
+              ]
+            },
+            {
+              "begin": "\\G",
+              "end": "(?=})",
+              "name": "meta.embedded.expression.svelte source.ts",
+              "patterns": [
+                {
+                  "include": "source.ts"
+                }
+              ]
+            }
+        ]
       },
       {
           "match": "({)\\s*(:then|:catch)\\s+([_$[:alpha:]][_$[:alnum:]]*)\\s*(})",
@@ -551,7 +603,7 @@
           ]
       },
       {
-          "match": "({)\\s*(:else|/if|/each|/await|/key)\\s*(})",
+          "match": "({)\\s*(:else|/if|/each|/await|/key|/snippet)\\s*(})",
           "captures": {
               "1": {
                   "name": "punctuation.definition.tag.begin.svelte"
@@ -607,7 +659,7 @@
           ]
       },
       {
-          "begin": "(</?)([A-Z][a-zA-Z0-9\\.:-]*)",
+          "begin": "(</?)(([\\w]+(?:\\.[\\w]+)+)|([A-Z][\\w]*))",
           "beginCaptures": {
               "1": {
                   "name": "punctuation.definition.tag.begin.html"

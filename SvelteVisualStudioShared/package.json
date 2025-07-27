@@ -1,7 +1,7 @@
 {
   "name": "svelte-visual-studio",
   "version": "2.2.0",
-  "description": "This extension is a language server client for Visual Studio 2019. Power by [Svelte Language Server](https://github.com/sveltejs/language-tools/) \r with [language server protocol](https://microsoft.github.io/language-server-protocol/)",
+  "description": "This extension is a language server client for Visual Studio 2022. Power by [Svelte Language Server](https://github.com/sveltejs/language-tools/) \r with [language server protocol](https://microsoft.github.io/language-server-protocol/)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

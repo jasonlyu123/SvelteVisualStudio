@@ -98,13 +98,13 @@ namespace SvelteVisualStudio
         {
             var portSettings = settings?.Property<int?>("svelte.language-server.port");
 
-            // For security reason don't allow this setting on release
-            string lsPathSettings =
+            var debug = false;
 #if DEBUG
-                settings?.Property<string>("svelte.language-server.ls-path");
-#else
-                null;
+            debug = true;
 #endif
+
+            // For security reason don't allow this setting on release
+            string lsPathSettings = debug ? settings?.Property<string>("svelte.language-server.ls-path") : null;
 
             var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -116,7 +116,7 @@ namespace SvelteVisualStudio
             var port = portSettings > 0 ? portSettings : 6009;
             var args = string.Join(
                 " ",
-                $"--inspect={port}",
+                debug ? $"--inspect={port}" : "",
                 $"\"{lsPath}\"",
                 "--stdio",
                 $"--clientProcessId={Process.GetCurrentProcess().Id}");

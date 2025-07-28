@@ -330,7 +330,7 @@
           },
           "patterns": [
               {
-                  "include": "#tag-stuff"
+                  "include": "#script-tag-stuff"
               },
               {
                   "contentName": "source.ts",
@@ -373,7 +373,7 @@
           },
           "patterns": [
               {
-                  "include": "#tag-stuff"
+                  "include": "#script-tag-stuff"
               },
               {
                   "contentName": "source.coffee",
@@ -416,7 +416,7 @@
           },
           "patterns": [
               {
-                  "include": "#tag-stuff"
+                  "include": "#script-tag-stuff"
               },
               {
                   "contentName": "source.ts",
@@ -490,7 +490,6 @@
             {
               "begin": "(?<=>\\s*\\()",
               "end": "(?=})",
-              "name": "meta.embedded.expression.svelte source.ts",
               "patterns": [
                 {
                   "include": "source.ts"
@@ -500,7 +499,6 @@
             {
               "begin": "\\G",
               "end": "(?=})",
-              "name": "meta.embedded.expression.svelte source.ts",
               "patterns": [
                 {
                   "include": "source.ts"
@@ -919,8 +917,105 @@
               }
           }
       },
+      "tag-attributes-attach": {
+            "begin": "(?<!:|=)\\s*({@attach\\s)",
+            "end": "(\\})",
+            "captures": {
+                "1": {
+                    "name": "entity.other.attribute-name.svelte"
+                }
+            },
+            "contentName": "meta.embedded.expression.svelte source.ts",
+            "patterns": [
+                {
+                    "include": "source.ts"
+                }
+            ]
+      },
       "tag-stuff": {
           "patterns": [
+              {
+                  "include": "#tag-event-handlers"
+              },
+              {
+                  "include": "#tag-moustaches"
+              },
+              {
+                  "include": "#tag-attributes-attach"
+              },
+              {
+                  "include": "#tag-moustaches-raw"
+              },
+              {
+                  "include": "#tag-shorthand"
+              },
+              {
+                  "include": "#tag-id-attribute"
+              },
+              {
+                  "include": "#tag-generic-attribute"
+              },
+              {
+                  "include": "#string-double-quoted"
+              },
+              {
+                  "include": "#string-single-quoted"
+              }
+          ]
+      },
+      "script-tag-attributes-generics": {
+            "begin": "(generics)(=)([\"'])",
+            "beginCaptures": {
+                "1": {
+                    "name": "entity.other.attribute-name.svelte"
+                },
+                "2": {
+                    "name": "punctuation.separator.key-value.svelte"
+                },
+                "3": {
+                    "name": "punctuation.definition.string.begin.svelte"
+                }
+            },
+            "end": "(\\3)",
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.definition.string.end.svelte"
+                }
+            },
+            "contentName": "meta.embedded.expression.svelte source.ts",
+            "patterns": [
+                {
+                    "include": "#script-tag-type-parameters"
+                }
+            ]
+        },
+        "script-tag-type-parameters": {
+            "name": "meta.type.parameters.ts",
+            "patterns": [
+                {
+                    "include": "source.ts#comment"
+                },
+                {
+                    "name": "storage.modifier.ts",
+                    "match": "(?<![_$[:alnum:]])(?:(?<=\\.\\.\\.)|(?<!\\.))(extends|in|out|const)(?![_$[:alnum:]])(?:(?=\\.\\.\\.)|(?!\\.))"
+                },
+                {
+                    "include": "source.ts#type"
+                },
+                {
+                    "include": "source.ts#punctuation-comma"
+                },
+                {
+                    "name": "keyword.operator.assignment.ts",
+                    "match": "(=)(?!>)"
+                }
+            ]
+      },
+      "script-tag-stuff": {
+         "patterns": [            
+              {
+                  "include": "#script-tag-attributes-generics"
+              },
               {
                   "include": "#tag-event-handlers"
               },

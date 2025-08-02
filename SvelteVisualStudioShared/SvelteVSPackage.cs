@@ -40,6 +40,7 @@ namespace SvelteVisualStudio
     [ProvideConfig("TextMate\\LanguageConfiguration\\ContentTypeMapping",
         SvelteContentDefinition.Identifier, languageConfigPath)]
     [ProvideEditorLogicalView(typeof(SvelteEditorFactory), VSConstants.LOGVIEWID.TextView_string)]
+    [ProvideBindingPath]
     public class SvelteVSPackage : AsyncPackage
     {
         private const string languageConfigPath = "$PackageFolder$\\LanguageConfig\\language-configuration.json";

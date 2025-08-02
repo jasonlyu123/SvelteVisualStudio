@@ -7,6 +7,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SvelteVisualStudioShared", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvelteVisualStudio_2022", "SvelteVisualStudio_2022\SvelteVisualStudio_2022.csproj", "{FC4B770D-9C71-4115-8DBE-27D17AE535E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvelteVisualStudio.CodeLens", "CodeLens\SvelteVisualStudio.CodeLens.csproj", "{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,14 @@ Global
 		{FC4B770D-9C71-4115-8DBE-27D17AE535E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FC4B770D-9C71-4115-8DBE-27D17AE535E5}.Release|x86.ActiveCfg = Release|x86
 		{FC4B770D-9C71-4115-8DBE-27D17AE535E5}.Release|x86.Build.0 = Release|x86
+		{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}.Debug|x86.Build.0 = Debug|Any CPU
+		{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}.Release|x86.ActiveCfg = Release|Any CPU
+		{E24D8E9E-B98F-3760-2AA6-2A893A3AA003}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

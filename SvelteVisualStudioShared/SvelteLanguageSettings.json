@@ -3,5 +3,7 @@
 	"svelte.plugin.typescript.enable": true,
 	"svelte.plugin.css.enable": true,
 	"svelte.plugin.html.enable": true,
-	"svelte.plugin.svelte.enable": true
+	"svelte.plugin.svelte.enable": true,
+
+	"typescript.referencesCodeLens.enabled": true
 }

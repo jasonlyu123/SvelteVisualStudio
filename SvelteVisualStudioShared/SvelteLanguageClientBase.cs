@@ -24,18 +24,13 @@ namespace SvelteVisualStudio
         public string Name => "Svelte For Visual Studio";
         private const string configScope = "svelte";
         private readonly IVsFolderWorkspaceService workspaceService;
-        private JsonRpc rpc;
+        protected JsonRpc rpc;
 
         public IEnumerable<string> ConfigurationSections => new[]
         {
             configScope,
             "typescript",
             "javascript"
-        };
-
-        public object InitializationOptions => new 
-        {
-            shouldFilterCodeActionKind = true,
         };
 
         // Should use gitignore pattern here, not all glob works

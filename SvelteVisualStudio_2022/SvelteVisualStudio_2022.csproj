@@ -51,6 +51,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CodeLensVS\CodeLensInfo.cs" />
+    <Compile Include="CodeLensVS\CodeLensMiddleLayer.cs" />
+    <Compile Include="CodeLensVS\CodeLensProvider.cs" />
+    <Compile Include="Document\DocumentTextBufferManager.cs" />
+    <Compile Include="JsonRpcAccessor.cs" />
+    <Compile Include="Document\LspOpenedDocumentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SvelteLanguageClient.cs" />
     <Compile Include="SvelteVSPackage.cs" />
